@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <div class="bg-gradient-to-r from-green-700 to-green-500 p-5 rounded-b-3xl">
+    <h2 class="text-white text-xl font-semibold">Profile</h2>
+  </div>
+
+  <!-- Profile Card -->
+  <div class="max-w-md mx-auto -mt-10">
+    <div class="bg-white rounded-2xl shadow p-5">
+      <!-- Avatar -->
+      <div class="flex flex-col items-center">
+        <div class="bg-green-600 text-white w-16 h-16 flex items-center justify-center rounded-full text-xl font-semibold">
+          AK
+        </div>
+        <h3 class="mt-3 text-lg font-semibold">Abhishek Kumar</h3>
+        <p class="text-gray-500 text-sm">abhishek@example.com</p>
+        <span class="text-green-600 text-sm font-medium mt-1">Patient</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-3 text-center mt-6">
+        <div>
+          <p class="text-lg font-semibold text-gray-800">24</p>
+          <p class="text-xs text-gray-500">Sessions</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold text-green-600">85%</p>
+          <p class="text-xs text-gray-500">Health Score</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold text-gray-800">15</p>
+          <p class="text-xs text-gray-500">Streak Days</p>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="mt-6 space-y-3 text-sm text-gray-700">
+        <div class="flex items-center"><i class="fas fa-phone mr-2 text-green-600"></i> +91 98765 43210</div>
+        <div class="flex items-center"><i class="fas fa-envelope mr-2 text-green-600"></i> abhishek@example.com</div>
+        <div class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-green-600"></i> Mumbai, Maharashtra</div>
+        <div class="flex items-center"><i class="fas fa-calendar-alt mr-2 text-green-600"></i> Born 15/05/1990</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Preferences -->
+  <div class="max-w-md mx-auto mt-6 bg-white rounded-2xl shadow p-5">
+    <h4 class="font-semibold text-gray-800 mb-3">Notification Preferences</h4>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-medium">Therapy Reminders</p>
+          <p class="text-xs text-gray-500">Get notified about upcoming sessions</p>
+        </div>
+        <label class="inline-flex relative items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer">
+          <div class="w-10 h-5 bg-gray-200 peer-checked:bg-green-500 rounded-full peer transition"></div>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-medium">Medication Alerts</p>
+          <p class="text-xs text-gray-500">Reminders for your medications</p>
+        </div>
+        <label class="inline-flex relative items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer">
+          <div class="w-10 h-5 bg-gray-200 peer-checked:bg-green-500 rounded-full peer transition"></div>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-medium">Health Tips</p>
+          <p class="text-xs text-gray-500">Daily wellness tips and advice</p>
+        </div>
+        <label class="inline-flex relative items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div class="w-10 h-5 bg-gray-200 peer-checked:bg-green-500 rounded-full peer transition"></div>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-medium">Promotional Updates</p>
+          <p class="text-xs text-gray-500">News about features and offers</p>
+        </div>
+        <label class="inline-flex relative items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div class="w-10 h-5 bg-gray-200 peer-checked:bg-green-500 rounded-full peer transition"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Options -->
+  <div class="max-w-md mx-auto mt-6 bg-white rounded-2xl shadow divide-y">
+    <a href="#" class="flex items-center p-4 text-gray-700">
+      <i class="fas fa-notes-medical mr-3 text-green-600"></i> Medical History
+    </a>
+    <a href="#" class="flex items-center p-4 text-gray-700">
+      <i class="fas fa-users mr-3 text-green-600"></i> Emergency Contacts
+    </a>
+    <a href="#" class="flex items-center p-4 text-gray-700">
+      <i class="fas fa-bell mr-3 text-green-600"></i> Notifications
+    </a>
+    <a href="#" class="flex items-center p-4 text-gray-700">
+      <i class="fas fa-lock mr-3 text-green-600"></i> Privacy & Security
+    </a>
+    <a href="#" class="flex items-center p-4 text-gray-700">
+      <i class="fas fa-question-circle mr-3 text-green-600"></i> Help & Support
+    </a>
+  </div>
+
+  <!-- Sign Out -->
+  <div class="max-w-md mx-auto mt-6">
+    <button class="w-full py-3 text-red-600 border border-red-300 rounded-2xl font-medium">
+      <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <p class="text-center text-xs text-gray-500 mt-4 mb-6">
+    Ayur Sutra v1.0.0 <br> Member since 15/01/2023
+  </p>
+
+</body>
+</html>
