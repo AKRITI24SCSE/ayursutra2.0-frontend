@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayur Sutra App</title>
 
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { margin:0; font-family: "Segoe UI", sans-serif; background:#eaeaea; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+    .app-container { width:100%; max-width:420px; height:100vh; background:#f8f9fa; display:flex; flex-direction:column; position:relative; box-shadow:0 0 12px rgba(0,0,0,0.15); border-radius:20px; overflow:hidden; }
+    .content { flex:1; overflow-y:auto; padding:15px; padding-bottom:80px; }
+    .navbar { position:absolute; bottom:0; left:0; width:100%; background:white; display:flex; justify-content:space-around; padding:10px 0; box-shadow:0 -2px 6px rgba(0,0,0,0.1); }
+    .navbar a { text-align:center; flex:1; color:#666; font-size:12px; text-decoration:none; }
+    .navbar a.active { color:#009688; font-weight:bold; }
+    .navbar i { font-size:18px; display:block; margin-bottom:4px; }
+    .hidden-page { display:none; }
+    .sos-btn { background:red; color:white; padding:6px 10px; border-radius:8px; font-size:12px; font-weight:bold; }
+    .card-doctor, .therapy-card, .profile-card { border-radius:15px; background:#fff; padding:15px; margin-bottom:15px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .card-doctor:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- CONTENT AREA -->
+  <div class="content">
+
+    <!-- DASHBOARD PAGE -->
+    <div id="page-dashboard">
+      <!-- Greeting Card -->
+      <div class="card-doctor p-4 bg-gradient-to-r from-teal-600 to-teal-800 text-white rounded-xl relative mb-4">
+        <h2 class="text-lg font-bold">Hi Abhishek! 👋</h2>
+        <p>Your next therapy is at 4:00 PM</p>
+        <p>Thursday, September 18</p>
+        <div class="sos-btn absolute top-2 right-2 text-xs font-bold">🚨 SOS</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex justify-between mb-4">
+        <div class="text-center bg-white rounded-xl shadow p-3 flex-1 mx-1">
+          <h3 class="text-teal-600 text-xl font-bold">12</h3>
+          <p class="text-sm text-gray-600">Sessions Completed</p>
+        </div>
+        <div class="text-center bg-white rounded-xl shadow p-3 flex-1 mx-1">
+          <h3 class="text-teal-600 text-xl font-bold">85%</h3>
+          <p class="text-sm text-gray-600">Health Score</p>
+        </div>
+      </div>
+
+      <!-- Upcoming Therapies -->
+      <h4 class="flex items-center gap-2 font-semibold mb-2"><i class="fa-regular fa-calendar"></i> Upcoming Therapies</h4>
+      <div class="card-doctor">
+        <h5>Abhyanga Massage</h5>
+        <p>Dr. Priya Sharma • 4:00 PM</p>
+        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Today • 60 mins</span>
+      </div>
+      <div class="card-doctor">
+        <h5>Shirodhara</h5>
+        <p>Dr. Raj Patel • 10:00 AM</p>
+        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Tomorrow • 45 mins</span>
+      </div>
+
+      <!-- Medications -->
+      <h4 class="flex items-center gap-2 font-semibold mt-4 mb-2"><i class="fa-solid fa-pills"></i> Today’s Medications</h4>
+      <div class="card-doctor">
+        <h5>Triphala Churna</h5>
+        <p>1 tsp • Before meals</p>
+        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Due</span>
+      </div>
+      <div class="card-doctor">
+        <h5>Ashwagandha</h5>
+        <p>500mg • After dinner</p>
+        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Taken</span>
+      </div>
+    </div>
+
+    <!-- DOCTOR FINDER PAGE -->
+    <div id="page-doctors" class="hidden-page">
+      <input type="text" id="search" placeholder="Search doctor..." class="w-full mb-2 p-2 border rounded">
+      <div id="doctor-list"></div>
+    </div>
+
+    <!-- THERAPY SCHEDULE PAGE -->
+    <div id="page-schedule" class="hidden-page">
+      <div class="therapy-card">
+        <h3>Abhyanga Full Body Massage <span class="text-teal-600 text-xs px-2 py-1 bg-teal-100 rounded-full">Upcoming</span></h3>
+        <p>👩‍⚕ Dr. Priya Sharma</p>
+        <div class="text-gray-600 text-xs">15/01/2024 • 4:00 PM (60 mins)</div>
+      </div>
+      <div class="therapy-card">
+        <h3>Shirodhara Treatment <span class="text-teal-600 text-xs px-2 py-1 bg-teal-100 rounded-full">Upcoming</span></h3>
+        <p>👨‍⚕ Dr. Raj Patel</p>
+        <div class="text-gray-600 text-xs">16/01/2024 • 10:00 AM (45 mins)</div>
+      </div>
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <div id="page-profile" class="hidden-page">
+      <div class="bg-gradient-to-r from-green-700 to-green-500 p-5 rounded-b-3xl text-white">
+        <h2 class="text-xl font-semibold">Profile</h2>
+      </div>
+      <div class="bg-white shadow rounded-xl p-4 -mt-10 text-center">
+        <div class="bg-green-600 w-16 h-16 flex items-center justify-center rounded-full text-white font-bold text-xl mx-auto">AK</div>
+        <h3 class="mt-2 font-semibold">Abhishek Kumar</h3>
+        <p class="text-gray-500 text-sm">abhishek@example.com</p>
+        <span class="text-green-600 text-sm font-medium mt-1">Patient</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAVBAR -->
+  <div class="navbar">
+    <a href="#" class="active" data-page="dashboard"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="#" data-page="doctors"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+    <a href="#" data-page="schedule"><i class="fa-regular fa-calendar-days"></i> Schedule</a>
+    <a href="#" data-page="profile"><i class="fa-regular fa-user"></i> Profile</a>
+  </div>
+
+</div>
+
+<script>
+  // Bottom Navbar Switching
+  document.querySelectorAll('.navbar a').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      document.querySelectorAll('.navbar a').forEach(el=>el.classList.remove('active'));
+      a.classList.add('active');
+      const page = a.dataset.page;
+      document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden-page'));
+      document.getElementById('page-'+page).classList.remove('hidden-page');
+    });
+  });
+
+  // Sample doctors data
+  const doctors = [
+    {id:1,name:"Dr. Aditi Sharma",specialty:"Cardiologist",experience:"12 yrs",hospital:"Apollo",distance:2.3,rating:4.8,image:"https://via.placeholder.com/55"},
+    {id:2,name:"Dr. Rajesh Kumar",specialty:"Dermatologist",experience:"8 yrs",hospital:"Fortis",distance:4.1,rating:4.6,image:"https://via.placeholder.com/55"},
+    {id:3,name:"Dr. Meera Iyer",specialty:"Pediatrician",experience:"10 yrs",hospital:"Max",distance:3.5,rating:4.9,image:"https://via.placeholder.com/55"}
+  ];
+
+  // Render Doctor List
+  function renderDoctors(list){
+    const container = document.getElementById("doctor-list");
+    container.innerHTML="";
+    list.forEach(d=>{
+      container.innerHTML+=`
+        <div class="card-doctor flex items-center p-3">
+          <img src="${d.image}" class="w-12 h-12 rounded-full mr-3">
+          <div class="flex-1">
+            <h5 class="font-semibold">${d.name}</h5>
+            <p class="text-xs text-gray-500">${d.specialty} • ${d.hospital}</p>
+            <p class="text-xs text-gray-500">${d.experience} • ${d.distance} km • ⭐ ${d.rating}</p>
+          </div>
+          <button class="bg-teal-600 text-white px-2 py-1 rounded text-xs">Book</button>
+        </div>
+      `;
+    });
+  }
+  renderDoctors(doctors);
+</script>
+
+</body>
+</html>
