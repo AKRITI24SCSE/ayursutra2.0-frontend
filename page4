@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapy Schedule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Mobile container */
+    .app-container {
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 12px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Scrollable content */
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      padding-bottom: 80px; /* space for navbar */
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(90deg, #009688, #00796b);
+      color: white;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sos-btn {
+      background: red;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .tab.active {
+      font-weight: bold;
+      color: #009688;
+      border-bottom: 2px solid #009688;
+    }
+
+    /* Therapy Card */
+    .therapy-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 15px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .therapy-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .therapy-card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .info i {
+      margin-right: 6px;
+      color: #009688;
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 12px;
+      background: #e0f7fa;
+      color: #00796b;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+
+    .note {
+      background: #e0f7fa;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 13px;
+      color: #004d40;
+      margin-top: 10px;
+    }
+
+    .note ul {
+      margin: 6px 0 0 15px;
+      padding: 0;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      margin: 0 4px;
+    }
+
+    .btn.reschedule {
+      background: #fff;
+      color: #333;
+    }
+
+    .btn.cancel {
+      background: #fff;
+      color: #c62828;
+      border: 1px solid #c62828;
+    }
+
+    /* Bottom Navbar */
+    .navbar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      text-align: center;
+      flex: 1;
+      color: #666;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .navbar a.active {
+      color: #009688;
+      font-weight: bold;
+    }
+
+    .navbar i {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Header -->
+  <div class="header">
+    Therapy Schedule
+    <div class="sos-btn">SOS</div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active">Upcoming</div>
+    <div class="tab">Calendar</div>
+    <div class="tab">History</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Therapy Card 1 -->
+    <div class="therapy-card">
+      <h3>Abhyanga Full Body Massage <span class="status">Upcoming</span></h3>
+      <p>👩‍⚕ Dr. Priya Sharma</p>
+      <div class="info"><i class="fa-regular fa-calendar"></i> 15/01/2024</div>
+      <div class="info"><i class="fa-regular fa-clock"></i> 4:00 PM (60 mins)</div>
+      <div class="info"><i class="fa-solid fa-location-dot"></i> Therapy Room 1</div>
+
+      <div class="note">
+        Please arrive 15 minutes early. Avoid heavy meals 2 hours before the session.  
+        <ul>
+          <li>Wear comfortable clothes</li>
+          <li>Bring a towel</li>
+          <li>Light meal only</li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <div class="btn reschedule">Reschedule</div>
+        <div class="btn cancel">Cancel</div>
+      </div>
+    </div>
+
+    <!-- Therapy Card 2 -->
+    <div class="therapy-card">
+      <h3>Shirodhara Treatment <span class="status">Upcoming</span></h3>
+      <p>👨‍⚕ Dr. Raj Patel</p>
+      <div class="info"><i class="fa-regular fa-calendar"></i> 16/01/2024</div>
+      <div class="info"><i class="fa-regular fa-clock"></i> 10:00 AM (45 mins)</div>
+      <div class="info"><i class="fa-solid fa-location-dot"></i> Shirodhara Room</div>
+
+      <div class="note">
+        Relax and avoid stress before the session.  
+        <ul>
+          <li>Empty bladder before treatment</li>
+          <li>Remove jewelry</li>
+          <li>Inform about allergies</li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <div class="btn reschedule">Reschedule</div>
+        <div class="btn cancel">Cancel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navbar -->
+  <div class="navbar">
+    <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="#"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+    <a href="#" class="active"><i class="fa-regular fa-calendar-days"></i> Schedule</a>
+    <a href="#"><i class="fa-solid fa-seedling"></i> Tips</a>
+    <a href="#"><i class="fa-regular fa-user"></i> Profile</a>
+  </div>
+</div>
+
+</body>
+</html>
